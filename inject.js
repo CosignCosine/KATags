@@ -112,6 +112,31 @@ function ext(s){
       }
     break;
 
+    case 2:
+      var a = document.querySelectorAll('a');
+      Array.prototype.forEach.call(a, function(el){
+        if(el.className.match(/author/gim)){
+          dt(el, 1)
+        }
+      })
+    break;
+
+    case 3:
+    console.warn('hi')
+      if(document.querySelectorAll('.unbreakable2').length === 0){
+        document.querySelectorAll('.nickname')[0].innerHTML += " ";
+        var sp = document.createElement("span")
+        sp.style.background = 'rgb(14, 92, 180)'
+        sp.style.fontWeight = 'bold';
+        sp.style.fontSize = '0.6em';
+        sp.style.padding = '0.4em';
+        sp.style.borderRadius = '1em';
+        sp.textContent = 'KABLOCK GOD'
+        sp.className = 'unbreakable2';
+        document.querySelectorAll('.nickname')[0].appendChild(sp)
+      }
+      break;
+
     default: {
       var str = document.querySelectorAll('strong');
       Array.prototype.forEach.call(str, function(el){
@@ -133,7 +158,10 @@ var int = setInterval(function(){
     ext(0);
     ext();
   }
-  // add block button on profile
+
+  if(location.href.includes('browse')){
+    ext(2);
+  }
 
   // add unblock area on user profile
   if(location.href.includes('profile') || location.href === 'https://www.khanacademy.org/'){
@@ -141,5 +169,36 @@ var int = setInterval(function(){
     ext();
   }
 
-  // add show blocked checkbox to notification dropdown
+  if(document.querySelectorAll('.nickname').length > 0 && document.querySelectorAll('.nickname')[0].textContent === "Scott Schraeder"){
+    ext(3);
+  }
+
+  if(document.querySelectorAll('.author-nickname').length > 0){ //author-nickname
+    var an = document.querySelectorAll('.author-nickname');
+    Array.prototype.forEach.call(an, function(el){
+      if(el.textContent.includes('Scott Schraeder')){
+        console.log('found scott xd')
+        if(el.querySelectorAll('.unbreakable2').length === 0){
+          var sp = document.createElement("span")
+          sp.style.background = 'rgb(14, 92, 180)'
+          sp.style.fontWeight = 'bold';
+          sp.style.fontSize = '0.6em';
+          sp.style.padding = '0.4em';
+          sp.style.borderRadius = '1em';
+          sp.style.color = 'white';
+          sp.style.textDecoration = 'none'
+          sp.textContent = 'KABLOCK GOD'
+          sp.className = 'unbreakable2';
+          el.appendChild(sp)
+        }
+        if(!el.parentNode.parentNode.parentNode.className.includes('reply')){
+          el.parentNode.parentNode.parentNode.style.background = 'rgba(0, 0, 0, 0.05)';
+          if(el.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.querySelectorAll('.replies-panel')[0]){
+            el.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.querySelectorAll('.replies-panel')[0].style.background = 'rgba(255, 255, 255, 0.3)';
+          }
+        }
+      }
+    });
+  }
+
 }, 500)

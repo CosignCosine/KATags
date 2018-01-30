@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
   "name": "Scott's KA Tools",
-  "description": "nut lol",
-  "version": "0.0.13",
+  "description": "Scott's tools for KA. This package includes KABlock and KATags!",
+  "version": "0.1.1",
   "content_scripts": [
     {
       "js": ["inject.js"],

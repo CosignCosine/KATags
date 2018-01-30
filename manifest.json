@@ -1,14 +1,14 @@
 {
   "manifest_version": 2,
   "name": "Scott's KA Tools",
-  "description": "A large extension.",
-  "version": "0.0.4",
+  "description": "nut lol",
+  "version": "0.0.10",
   "content_scripts": [
     {
+      "js": ["inject.js"],
       "matches": [
         "*://*.khanacademy.org/*"
-      ],
-      "js": ["inject.js"]
+      ]
     }
   ],
   "browser_action": {

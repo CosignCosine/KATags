@@ -177,8 +177,8 @@ var int = setInterval(function(){
     var an = document.querySelectorAll('.author-nickname');
     Array.prototype.forEach.call(an, function(el){
       if(el.textContent.includes('Scott Schraeder')){
-        console.log('found scott xd')
         if(el.querySelectorAll('.unbreakable2').length === 0){
+          el.innerHTML += " ";
           var sp = document.createElement("span")
           sp.style.background = 'rgb(14, 92, 180)'
           sp.style.fontWeight = 'bold';

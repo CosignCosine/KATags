@@ -1,11 +1,11 @@
 {
   "manifest_version": 2,
   "name": "Scott's KA Tools",
-  "description": "Scott's tools for KA. This package includes KABlock and KATags!",
-  "version": "0.1.1",
+  "description": "Scott's tools for KA. 0.2.0: Added basis for KATags",
+  "version": "0.2.0",
   "content_scripts": [
     {
-      "js": ["inject.js"],
+      "js": ["kablock.js", "katags.js"],
       "matches": [
         "*://*.khanacademy.org/*"
       ]

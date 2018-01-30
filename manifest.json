@@ -1,7 +1,8 @@
 {
   "manifest_version": 2,
-  "name": "KATags",
-  "version": "0.0.2",
+  "name": "Scott's KA Tools",
+  "description": "A large extension.",
+  "version": "0.0.4",
   "content_scripts": [
     {
       "matches": [
@@ -9,5 +10,9 @@
       ],
       "js": ["inject.js"]
     }
-  ]
+  ],
+  "browser_action": {
+    "default_icon": "earth.png",
+    "default_popup": "popup.html"
+  }
 }

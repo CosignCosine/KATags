@@ -19,10 +19,15 @@ request.onload = function() {
     // Success!
     var data = JSON.parse(request.responseText);
     var l = data.revision.code.replace(/(.+)KATAGS: /gim, '')
-    console.warn(l)
-    l = l.replace(/ END[\s\S]*/gim, '');
-    console.warn(l)
-    l = l.split(' ');
+    if(l === data.revision.code){
+      console.warn('no tags')
+      l = [];
+    }else{
+      console.warn(l)
+      l = l.replace(/ END[\s\S]*/gim, '');
+      console.warn(l)
+      l = l.split(' ');
+    }
 
     tags = l;
   } else {
@@ -31,7 +36,7 @@ request.onload = function() {
   }
 };
 request.onerror = function() {
-  console.error('Could not fire KATags due to client-side inconsistencies.')
+  console.error('Could not fire KATags due to client-side inconsistencies or errors.')
 };
 request.send();
 
